@@ -3,10 +3,10 @@ import React, { useState } from 'react';  //Line 2:17:  'useState' is defined bu
 
 /*TODO:
 ID bei der Erstellung generieren und nicht im Namen anzeigen
-Achievment-Liste
+Achievement-Liste
 Redux
 Überprüfung auf doppelte Namen
-Übersetzung in Typerscript
+Übersetzung in Typescript
 */
 
 function Deck({ deck, index, removeDeck }) {
