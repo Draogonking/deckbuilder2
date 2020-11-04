@@ -1,6 +1,14 @@
 import './App.css';
 import React, { useState } from 'react';  //Line 2:17:  'useState' is defined but never used  no-unused-vars (Wieso???)
 
+/*TODO:
+ID bei der Erstellung generieren und nicht im Namen anzeigen
+Achievment-Liste
+Redux
+Überprüfung auf doppelte Namen
+Übersetzung in Typerscript
+*/
+
 function Deck({ deck, index, removeDeck }) {
   return (
     <div className="deck">
@@ -41,7 +49,7 @@ function App() {
   var idCount = 1;
 
   const [decks, setDecks] = React.useState([
-    //ID wird im Namen angezeigt
+    //ID wird im Namen angezeigt (muss noch gefixt werden)
     { name: "Deck 1", id: 1}, 
     { name: "Deck 2", id: 2},
     { name: "Deck 3", id: 3},
@@ -58,7 +66,7 @@ function App() {
     } 
     //Dem Deck soll eine ID zugewiesen werden
     //const newDecks = [...decks, { id = idCount }];
-    idCount = idCount + 1; //idCount wird nicht erhöht???
+    idCount = idCount + 1; //idCount wird nicht erhöht??? => erstes Deck alert wird immer angezeigt
     setDecks(newDecks);
   };
 
