@@ -4,10 +4,14 @@ import React, { useState } from 'react';  //Line 2:17:  'useState' is defined bu
 /*TODO:
 ID bei der Erstellung generieren und nicht im Namen anzeigen
 Achievement-Liste
-Redux
+Redux statt alerts
 Überprüfung auf doppelte Namen
 Übersetzung in Typescript
 */
+
+var idCount = 1;
+var deleteCount = 0;
+var createCount = 0;
 
 function Deck({ deck, index, removeDeck }) {
   return (
@@ -44,9 +48,6 @@ function DeckForm({ addDeck }) {
 }
 
 function App() {
-  //ID-Counter
-  //const [idCount, setIdCount] = useState(1)
-  var idCount = 1;
 
   const [decks, setDecks] = React.useState([
     //ID wird im Namen angezeigt (muss noch gefixt werden)
@@ -58,20 +59,25 @@ function App() {
   const addDeck = name => {
     const newDecks = [...decks, { name }];
     //aktuell noch alerts, redux store + Liste auf Seite fehlt
-    if (idCount === 1) {
-      alert("Erstes Deck erstellt");
+    if (createCount === 0) {
+      alert("Erstes Deck erstellt!");
     }
-    if (idCount === 10) {
-      alert("Zehntes Deck erstellt");
+    if (createCount === 9) {
+      alert("Zehntes Deck erstellt!");
     } 
     //Dem Deck soll eine ID zugewiesen werden
     //const newDecks = [...decks, { id = idCount }];
-    idCount = idCount + 1; //idCount wird nicht erhöht??? => erstes Deck alert wird immer angezeigt
+    idCount++;
+    createCount++;
     setDecks(newDecks);
   };
 
   const removeDeck = index => {
     const newDecks = [...decks];
+    if (deleteCount === 0) {
+      alert("Erstes Deck gelöscht!");
+    }
+    deleteCount++;
     newDecks.splice(index, 1);
     setDecks(newDecks);
   };
